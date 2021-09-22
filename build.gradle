@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'com.craftmaster2190.javaBooleanGates'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+ext {
+    junitVersion = '5.7.0'
+    lombokVersion = '1.18.20'
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+
+    testCompileOnly "org.assertj:assertj-core:3.11.1"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    implementation("com.google.guava:guava:30.1.1-jre")
+}
+
+test {
+    useJUnitPlatform()
+}
